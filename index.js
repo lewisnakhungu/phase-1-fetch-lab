@@ -1,6 +1,10 @@
 function fetchBooks() {
   // To pass the tests, don't forget to return your fetch!
-  
+ return fetch("https://anapioficeandfire.com/api/books")
+  .then(res => res.json()) //this coverts response to json
+  .then(data => renderBooks(data))
+  //catch error
+  .catch(error => console.error("failed to fetch books", error));
 }
 
 function renderBooks(books) {
